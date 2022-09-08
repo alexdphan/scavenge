@@ -9,6 +9,7 @@ option go_package = "scavenge/x/scavenge/types";
 service Msg {
       rpc SubmitScavenge(MsgSubmitScavenge) returns (MsgSubmitScavengeResponse);
   rpc RevealSolution(MsgRevealSolution) returns (MsgRevealSolutionResponse);
+  rpc CommitSolution(MsgCommitSolution) returns (MsgCommitSolutionResponse);
 // this line is used by starport scaffolding # proto/tx/rpc
 }
 
@@ -28,6 +29,15 @@ message MsgRevealSolution {
 }
 
 message MsgRevealSolutionResponse {
+}
+
+message MsgCommitSolution {
+  string creator = 1;
+  string solutionHash = 2;
+  string solutionScavengerHash = 3;
+}
+
+message MsgCommitSolutionResponse {
 }
 
 // this line is used by starport scaffolding # proto/tx/message
